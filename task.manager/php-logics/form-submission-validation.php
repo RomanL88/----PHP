@@ -3,12 +3,12 @@
 // если метод отправки пост и введён пароль и введён логин, то подключаем файлы с логинами и паролями на странице авторизации.
 if ($_SERVER['REQUEST_METHOD'] == 'POST' &&  isset($_POST['password']) &&  isset($_POST['login'])) {
 
-    user_data_check($_POST['login_id'], $_POST['password_id']);        //вызов проверки данных пользователя
+    $correctUserData = user_data_check($_POST['login'], $_POST['password']);        //вызов проверки данных пользователя
 }
 
 function user_data_check($login_id, $password_id)
 {
-
+    $test = 123;
     include __DIR__ . '/../data/passwords.php';       //подключаем пароли
     include __DIR__ . '/../data/users.php';       //подключаем логины
 
@@ -16,11 +16,16 @@ function user_data_check($login_id, $password_id)
 
     foreach ($userData as $log => $pass) {
 
-        if ($log == $login_id) {
 
-            if ($pass == $password_id) {
+        if ($log === $login_id) {
 
-                include __DIR__ . '/include/success_message.php'; // ПОДКЛЮЧАЮ ФАЙЛ СО ЗНАКОМ ОБ УСПЕШНОЙ АВТОРИЗАЦИИ ( /include/success_message.php )
+            if ($pass === $password_id) {
+
+                return $correctUserData = true;
+
+                //написать логику, чтобы передавало значение тру в авторизацию, чтобы там подключались файлы, перенести инклуды туда
+
+                //include __DIR__ . '/../include/success_message.php'; // ПОДКЛЮЧАЮ ФАЙЛ СО ЗНАКОМ ОБ УСПЕШНОЙ АВТОРИЗАЦИИ ( /include/success_message.php )
 
             } else {
 
@@ -28,10 +33,11 @@ function user_data_check($login_id, $password_id)
             }
         } else {
 
-            include __DIR__ . '/../include/error_message.php'; // ПОДКЛЮЧАЮ ФАЙЛ СО ЗНАКОМ ОБ УСПЕШНОЙ АВТОРИЗАЦИИ (/include/error_message.php )
+            //include __DIR__ . '/../include/error_message.php'; // ПОДКЛЮЧАЮ ФАЙЛ СО ЗНАКОМ ОБ ошибке (/include/error_message.php )
 
             $userLoginSent = (true) ? $_POST['login_id'] : ' ';        // ДАННЫЕ  -> ОТПРАВЛЕННЫЕ ПОЛЬЗОВАТЕЛЕМ
             $userPasswordSent = (true) ? $_POST['password_id'] : ' ';
         }
     }
 }
+var_dump($correctUserData);

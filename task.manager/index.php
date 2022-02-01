@@ -52,12 +52,8 @@
                     include 'authorization.php';
                 }
                 ?>
-    </table>
-    </form>
-    </div>
-
-    </td>
-    </tr>
+            </td>
+        </tr>
     </table>
 
     <div class="clearfix">
