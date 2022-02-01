@@ -1,3 +1,5 @@
+<?php include __DIR__ . '/php-logics/form-submission-validation.php' // подключаю проверку формы 
+?>
 <!DOCTYPE html>
 <html>
 
