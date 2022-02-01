@@ -24,11 +24,14 @@ function user_data_check($login_id, $password_id)
 
             } else {
 
-                include __DIR__ . '/../include/error_message.php'; // ПОДКЛЮЧАЮ ФАЙЛ СО ЗНАКОМ ОБ УСПЕШНОЙ АВТОРИЗАЦИИ (/include/error_message.php )
-
-                $userLoginSent = (true) ? $_POST['login_id'] : ' ';        // ДАННЫЕ  -> ОТПРАВЛЕННЫЕ ПОЛЬЗОВАТЕЛЕМ
-                $userPasswordSent = (true) ? $_POST['password_id'] : ' ';
+                break;
             }
+        } else {
+
+            include __DIR__ . '/../include/error_message.php'; // ПОДКЛЮЧАЮ ФАЙЛ СО ЗНАКОМ ОБ УСПЕШНОЙ АВТОРИЗАЦИИ (/include/error_message.php )
+
+            $userLoginSent = (true) ? $_POST['login_id'] : ' ';        // ДАННЫЕ  -> ОТПРАВЛЕННЫЕ ПОЛЬЗОВАТЕЛЕМ
+            $userPasswordSent = (true) ? $_POST['password_id'] : ' ';
         }
     }
 }
