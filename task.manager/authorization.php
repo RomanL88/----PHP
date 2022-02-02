@@ -14,10 +14,6 @@
                     ?>
                     <label for="login_id">Ваш e-mail:</label>
                     <input id="login_id" size="30" name="login" value="<?= $userLoginSent ?>">
-
-                    <?php var_dump($userLoginSent) //не забудь убрать эту строку
-                    ?>
-
                 </td>
             </tr>
             <tr>

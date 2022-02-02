@@ -4,7 +4,20 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST' &&  isset($_POST['password']) &&  isset($_POST['login'])) {
 
     $correctUserData = user_data_check($_POST['login'], $_POST['password']);        //вызов проверки данных пользователя
+
 }
+
+if ($correctUserData === false) {
+
+    $userPasswordSent = (true) ? $_POST['password'] : ' ';
+    $userLoginSent = (true) ? $_POST['login'] : ' ';        // ДАННЫЕ  -> ОТПРАВЛЕННЫЕ ПОЛЬЗОВАТЕЛЕМ
+
+
+}
+
+
+
+
 
 function user_data_check($login_id, $password_id)
 {
@@ -27,6 +40,7 @@ function user_data_check($login_id, $password_id)
                 //include __DIR__ . '/../include/success_message.php'; // ПОДКЛЮЧАЮ ФАЙЛ СО ЗНАКОМ ОБ УСПЕШНОЙ АВТОРИЗАЦИИ ( /include/success_message.php )
 
             } else {
+                return $correctUserData = false;
 
                 break;
             }
@@ -34,10 +48,6 @@ function user_data_check($login_id, $password_id)
 
             //include __DIR__ . '/../include/error_message.php'; // ПОДКЛЮЧАЮ ФАЙЛ СО ЗНАКОМ ОБ ошибке (/include/error_message.php )
 
-            global $userLoginSent;
-            return $userLoginSent = (true) ? $_POST['login_id'] : ' ';        // ДАННЫЕ  -> ОТПРАВЛЕННЫЕ ПОЛЬЗОВАТЕЛЕМ
-            global $userPasswordSent;
-            return $userPasswordSent = (true) ? $_POST['password_id'] : ' ';
             return $correctUserData = false;
         }
     }
