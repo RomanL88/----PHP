@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' &&  isset($_POST['password']) &&  isset
 
 function user_data_check($login_id, $password_id)
 {
-    $test = 123;
     include __DIR__ . '/../data/passwords.php';       //подключаем пароли
     include __DIR__ . '/../data/users.php';       //подключаем логины
 
@@ -35,9 +34,11 @@ function user_data_check($login_id, $password_id)
 
             //include __DIR__ . '/../include/error_message.php'; // ПОДКЛЮЧАЮ ФАЙЛ СО ЗНАКОМ ОБ ошибке (/include/error_message.php )
 
-            $userLoginSent = (true) ? $_POST['login_id'] : ' ';        // ДАННЫЕ  -> ОТПРАВЛЕННЫЕ ПОЛЬЗОВАТЕЛЕМ
-            $userPasswordSent = (true) ? $_POST['password_id'] : ' ';
+            global $userLoginSent;
+            return $userLoginSent = (true) ? $_POST['login_id'] : ' ';        // ДАННЫЕ  -> ОТПРАВЛЕННЫЕ ПОЛЬЗОВАТЕЛЕМ
+            global $userPasswordSent;
+            return $userPasswordSent = (true) ? $_POST['password_id'] : ' ';
+            return $correctUserData = false;
         }
     }
 }
-var_dump($correctUserData);

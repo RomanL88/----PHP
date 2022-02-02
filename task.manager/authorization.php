@@ -4,16 +4,20 @@
             <tr>
                 <td class="iat">
                     <?php // перенести сюда инклуд 
-                    if ($correctUserData == true) {
+                    if ($correctUserData === true) {
                         //ПОДКЛЮЧАЕМ ИНКЛУД
                         include __DIR__ . '/include/success_message.php';
-                    } else {
+                    } elseif ($correctUserData === false) {
                         //ПОДКЛЮЧАЕМ ДРУГОЙ ИНКЛУД
                         include __DIR__ . '/include/error_message.php';
                     }
                     ?>
                     <label for="login_id">Ваш e-mail:</label>
                     <input id="login_id" size="30" name="login" value="<?= $userLoginSent ?>">
+
+                    <?php var_dump($userLoginSent) //не забудь убрать эту строку
+                    ?>
+
                 </td>
             </tr>
             <tr>
