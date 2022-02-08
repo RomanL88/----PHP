@@ -1,4 +1,7 @@
-<?php include __DIR__ . '/php-logics/form-submission-validation.php' // подключаю проверку формы 
+<?php
+session_start(); //Запускаем сессии
+
+include __DIR__ . '/php-logics/form-submission-validation.php' // подключаю проверку формы 
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,6 +18,25 @@
     <div class="header">
         <div class="logo"><img src="i/logo.png" alt="Project"></div>
         <div class="author">Автор: <span class="author__name">Роман</span></div>
+        <ul class="project-folders-v">
+            <?php
+            //если пользователь авторизован, то вместо ссылки авторизации будет ссылка выход
+            // который должен завершать сессию и удалять куки  
+            if (logged_in() === true) {
+                // выводим ссылку выход
+                // можно ли так делать???
+                echo '<li><a href="php-logics/close.php">Выход</a></li>';
+                // если нажимаем, то удаляем сессию
+
+            } else {
+                //выводим ссылку авторизации
+                echo '<li class="project-folders-v-active"><a href="?login=yes" method="get">Авторизация</a></li>';
+            };
+            ?>
+        </ul>
+
+
+
     </div>
 
     <div class="clear">
@@ -40,7 +62,7 @@
 
                 <div class="project-folders-menu">
                     <ul class="project-folders-v">
-                        <li class="project-folders-v-active"><a href="?login=yes" method="get">Авторизация</a></li>
+                        <!-- <li class="project-folders-v-active"><a href="?login=yes" method="get">Авторизация</a></li> -->
                         <li><a href="#">Регистрация</a></li>
                         <li><a href="#">Забыли пароль?</a></li>
                     </ul>
@@ -67,6 +89,9 @@
     </div>
 
     <div class="footer">&copy;&nbsp;<nobr>2018</nobr> Project.</div>
+    <?php
+    var_dump($_SESSION);
+    ?>
 
 </body>
 

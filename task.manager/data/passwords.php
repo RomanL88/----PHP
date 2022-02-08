@@ -1,4 +1,6 @@
 <?php
+session_start(); //Запускаем сессии
+
 $userPasswords = [
 
     '0' => 'pass',
