@@ -13,6 +13,24 @@
                     }
                     ?>
                     <label for="login_id">Ваш e-mail:</label>
+
+
+                    <?php
+                    //в форме авторизации поле «Логин»
+                    /*кука установлена, но пользователь не авторизован */
+                    //должно быть уже заполнено значением логина 
+                    //пользователя из куки, 
+                    if (isset($_COOKIE['login'])) {
+
+                        $userLoginSent = $_COOKIE['login'];
+
+                        // $userLoginSent = $log;
+                        //$_POST['login'] = $log;
+                    }
+                    var_dump($userLoginSent);
+                    ?>
+
+
                     <input id="login_id" size="30" name="login" value="<?= $userLoginSent ?>">
                 </td>
             </tr>

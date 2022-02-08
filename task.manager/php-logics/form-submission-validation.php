@@ -42,7 +42,8 @@ function startSession($isUserActivity = true)
 
     if (session_id()) return true;
     // Устанавливаем время жизни куки до закрытия браузера (контролировать все будем на стороне сервера)
-    ini_set('session.cookie_lifetime', 0);
+    //ini_set('session.cookie_lifetime', 0);
+
     if (!session_start()) return false;
 
     $t = time();
@@ -101,10 +102,15 @@ function user_data_check($login_id, $password_id)
 
         if ($log === $login_id) {
 
+
             if ($pass === $password_id) {
 
                 $_SESSION["is_auth"] = true; //Делаем пользователя авторизованным
                 $_SESSION["login"] = $log; //Записываем в сессию логин пользователя
+
+                //устанавливаю жизнь куки +1 месяц
+                setcookie('login', $log['login'], time() + 60 * 60 * 24 * 30); //логин
+
                 startSession();
                 return $correctUserData = true;
 

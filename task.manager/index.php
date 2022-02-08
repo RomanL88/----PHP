@@ -42,7 +42,7 @@ include __DIR__ . '/php-logics/form-submission-validation.php' // подключ
     <div class="clear">
         <ul class="main-menu">
             <li><a href="#">Главная</a></li>
-            <li><a href="#">О нас</a></li>
+            <li><a href="about-us.php">О нас</a></li>
             <li><a href="#">Контакты</a></li>
             <li><a href="#">Новости</a></li>
             <li><a href="#">Каталог</a></li>
@@ -91,6 +91,8 @@ include __DIR__ . '/php-logics/form-submission-validation.php' // подключ
     <div class="footer">&copy;&nbsp;<nobr>2018</nobr> Project.</div>
     <?php
     var_dump($_SESSION);
+    var_dump($_GET['test']);
+
     ?>
 
 </body>
