@@ -1,5 +1,5 @@
 <?php
-session_start(); //Запускаем сессии
+session_start();
 
 $userPasswords = [
 

@@ -1,7 +1,7 @@
 <?php
-session_start(); //Запускаем сессии
+session_start();
 
-include __DIR__ . '/php-logics/form-submission-validation.php' // подключаю проверку формы 
+include __DIR__ . '/php-logics/form-submission-validation.php'
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,16 +20,13 @@ include __DIR__ . '/php-logics/form-submission-validation.php' // подключ
         <div class="author">Автор: <span class="author__name">Роман</span></div>
         <ul class="project-folders-v">
             <?php
-            //если пользователь авторизован, то вместо ссылки авторизации будет ссылка выход
-            // который должен завершать сессию и удалять куки  
-            if (logged_in() === true) {
-                // выводим ссылку выход
-                // можно ли так делать???
-                echo '<li><a href="php-logics/close.php">Выход</a></li>';
-                // если нажимаем, то удаляем сессию
 
+
+            if ((isset($_SESSION['is_auth']) && $_SESSION["is_auth"] == true)) {
+
+                echo '<li><a href="php-logics/close.php">Выход</a></li>';
             } else {
-                //выводим ссылку авторизации
+
                 echo '<li class="project-folders-v-active"><a href="?login=yes" method="get">Авторизация</a></li>';
             };
             ?>
@@ -62,7 +59,7 @@ include __DIR__ . '/php-logics/form-submission-validation.php' // подключ
 
                 <div class="project-folders-menu">
                     <ul class="project-folders-v">
-                        <!-- <li class="project-folders-v-active"><a href="?login=yes" method="get">Авторизация</a></li> -->
+
                         <li><a href="#">Регистрация</a></li>
                         <li><a href="#">Забыли пароль?</a></li>
                     </ul>

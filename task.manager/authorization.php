@@ -3,12 +3,12 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td class="iat">
-                    <?php // перенести сюда инклуд 
+                    <?php
                     if ($correctUserData === true) {
-                        //ПОДКЛЮЧАЕМ ИНКЛУД
+
                         include __DIR__ . '/include/success_message.php';
                     } elseif ($correctUserData === false) {
-                        //ПОДКЛЮЧАЕМ ДРУГОЙ ИНКЛУД
+
                         include __DIR__ . '/include/error_message.php';
                     }
                     ?>
@@ -16,16 +16,11 @@
 
 
                     <?php
-                    //в форме авторизации поле «Логин»
-                    /*кука установлена, но пользователь не авторизован */
-                    //должно быть уже заполнено значением логина 
-                    //пользователя из куки, 
+                    var_dump(($_COOKIE['login']));
+
                     if (isset($_COOKIE['login'])) {
 
                         $userLoginSent = $_COOKIE['login'];
-
-                        // $userLoginSent = $log;
-                        //$_POST['login'] = $log;
                     }
                     var_dump($userLoginSent);
                     ?>

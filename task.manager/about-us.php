@@ -7,7 +7,7 @@ function logged_in()
 
 
 if (logged_in() === false) {
-    //редирект на главную страницу
+
     header('Location: https://www/task.manager/index.php ');
 }
 ?>
