@@ -16,13 +16,13 @@
 
 
                     <?php
-                    var_dump(($_COOKIE['login']));
+
 
                     if (isset($_COOKIE['login'])) {
 
                         $userLoginSent = $_COOKIE['login'];
                     }
-                    var_dump($userLoginSent);
+
                     ?>
 
 

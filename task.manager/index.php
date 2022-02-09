@@ -22,14 +22,13 @@ include __DIR__ . '/php-logics/form-submission-validation.php'
             <?php
 
 
-            if ((isset($_SESSION['is_auth']) && $_SESSION["is_auth"] == true)) {
+            if ((isset($_SESSION['is_auth']) && $_SESSION["is_auth"] == true)) { ?>
 
-                echo '<li><a href="php-logics/close.php">Выход</a></li>';
-            } else {
+                <li><a href="php-logics/close.php">Выход</a></li>
+            <?php } else { ?>
 
-                echo '<li class="project-folders-v-active"><a href="?login=yes" method="get">Авторизация</a></li>';
-            };
-            ?>
+                <li class="project-folders-v-active"><a href="?login=yes" method="get">Авторизация</a></li>
+            <?php } ?>
         </ul>
 
 
@@ -87,8 +86,7 @@ include __DIR__ . '/php-logics/form-submission-validation.php'
 
     <div class="footer">&copy;&nbsp;<nobr>2018</nobr> Project.</div>
     <?php
-    var_dump($_SESSION);
-    var_dump($_GET['test']);
+
 
     ?>
 

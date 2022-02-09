@@ -1,12 +1,6 @@
 <?php session_start();
 
-function logged_in()
-{
-    return (isset($_SESSION['is_auth'])) ? true : false;
-}
-
-
-if (logged_in() === false) {
+if ((isset($_SESSION['is_auth']) && $_SESSION["is_auth"] == true)) {
 
     header('Location: https://www/task.manager/index.php ');
 }
