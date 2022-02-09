@@ -1,6 +1,6 @@
 <?php session_start();
 
-if ((isset($_SESSION['is_auth']) && $_SESSION["is_auth"] == true)) {
+if ((isset($_SESSION['is_auth']) && $_SESSION["is_auth"] == false)) {
 
     header('Location: https://www/task.manager/index.php ');
 }
